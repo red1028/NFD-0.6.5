@@ -216,19 +216,19 @@ AsyncIbrDtnClient::AsyncIbrDtnClient(const std::string &app,
 	m_socketStream(new ibrcommon::tcpsocket(m_ibrdtndAddress)),
 	m_ioService(ioService)
 {
-  NFD_LOG_CHAN_TRACE("AsyncIbrDtnClient CONSTRUCTOR");
+  NFD_LOG_TRACE("AsyncIbrDtnClient CONSTRUCTOR");
   m_pChannel = pChannel;
   connect();
 }
 
 AsyncIbrDtnClient::~AsyncIbrDtnClient()
 {
-  NFD_LOG_CHAN_INFO("AsyncIbrDtnClient DESTRUCTOR");
+  NFD_LOG_INFO("AsyncIbrDtnClient DESTRUCTOR");
 }
 
 void AsyncIbrDtnClient::received(const dtn::data::Bundle &b)
 {
-  NFD_LOG_CHAN_TRACE("AsyncIbrDtnClient RECEIVE BUNDLE");
+  NFD_LOG_TRACE("AsyncIbrDtnClient RECEIVE BUNDLE");
 
   auto f1 = std::bind(&DtnChannel::processBundle, m_pChannel, _1);
   m_ioService.post([f1, b] {
@@ -238,7 +238,7 @@ void AsyncIbrDtnClient::received(const dtn::data::Bundle &b)
 
 void AsyncIbrDtnClient::eventConnectionDown() throw ()
 {
-  NFD_LOG_CHAN_INFO("AsyncIbrDtnClient receiver connection down!");
+  NFD_LOG_INFO("AsyncIbrDtnClient receiver connection down!");
   Client::eventConnectionDown();
 }
 
