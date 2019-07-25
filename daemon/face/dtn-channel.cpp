@@ -29,7 +29,7 @@
 #include <sys/stat.h> // for chmod()
 #include "generic-link-service.hpp"
 //#include "core/scheduler.hpp"
-#include "common/global.hpp"
+#include "core/global-io.hpp"
 
 namespace nfd {
 namespace face {
