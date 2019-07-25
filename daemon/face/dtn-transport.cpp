@@ -6,7 +6,7 @@
  */
 
 #include "dtn-transport.hpp"
-#include "common/global.hpp"
+#include "core/global-io.hpp"
 // #include <ibrdtn/data/EID.h>
 #include <ibrcommon/data/BLOB.h>
 #include <ibrcommon/net/socket.h>
